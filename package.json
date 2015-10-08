@@ -26,7 +26,8 @@
     "falcor-express": "^0.1.2",
     "falcor-router": "^0.2.9",
     "react": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "react-dom": "^0.14.0",
+    "request-promise": "^0.4.3"
   },
   "devDependencies": {
     "babelify": "^6.3.0",
