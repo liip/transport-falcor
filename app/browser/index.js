@@ -2,7 +2,7 @@ var model = require('../models');
 
 console.log('momma');
 
-model.get('locations["foo"][0..]["id", "name"]')
+model.get(['locations', 'foo', {from: 2, to: 5}, ['id', 'name']])
   .then((res) => {
     console.log(res.json);
   })
