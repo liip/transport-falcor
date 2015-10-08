@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 2rem;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+input {
+  font-size: 2rem;
+  padding: 0.2rem 0.5rem;
+}

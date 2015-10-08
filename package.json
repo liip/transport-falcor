@@ -4,9 +4,9 @@
   "description": "Open Data Transport with Falcor",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/nodemon -w app/server app/server/index.js",
-    "watch": "npm run watch-browser",
-    "watch-browser": "./node_modules/.bin/watchify app/browser/index.js -t babelify --outfile public/js/app.js",
+    "start": "npm run build && ./node_modules/.bin/nodemon -w app/server app/server/index.js",
+    "build": "./node_modules/.bin/browserify app/browser/index.js -t babelify --outfile public/js/app.js",
+    "watch": "./node_modules/.bin/watchify app/browser/index.js -t babelify --outfile public/js/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/liip/transport-falcor.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/liip/transport-falcor/issues"
   },
