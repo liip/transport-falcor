@@ -1,14 +1,19 @@
-var rp = require('request-promise');
+var rp = require('request-promise')
+  , config = require('../../config');
 
-var API_HOST = 'http://transport.opendata.ch/v1';
+function get(path, qs) {
+  return rp({
+    url: config.API_HOST + path,
+    qs: qs,
+    json: true,
+    useQuerystring: true
+  });
+}
+
 
 exports.getLocations = function(query) {
-  console.log(API_HOST + '/locations');
-  return rp({
-    json: true,
-    url: API_HOST + '/locations?query=' + query
-  })
-  .then(function(res) {
-    return res.stations;
-  });
+  return get('/locations', { query: query })
+    .then(function(res) {
+      return res.stations;
+    });
 };
