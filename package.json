@@ -4,6 +4,9 @@
   "description": "Open Data Transport with Falcor",
   "main": "index.js",
   "scripts": {
+    "start": "./node_modules/.bin/nodemon -w app/server app/server/index.js",
+    "watch": "npm run watch-browser",
+    "watch-browser": "./node_modules/.bin/watchify app/browser/index.js -t babelify --outfile public/js/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,13 +20,19 @@
   },
   "homepage": "https://github.com/liip/transport-falcor#readme",
   "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
     "falcor": "^0.1.13",
+    "falcor-express": "^0.1.2",
+    "falcor-router": "^0.2.9",
     "react": "^0.14.0",
     "react-dom": "^0.14.0"
   },
   "devDependencies": {
     "babelify": "^6.3.0",
     "browserify": "^11.2.0",
-    "eslint": "^1.6.0"
+    "eslint": "^1.6.0",
+    "nodemon": "^1.7.1",
+    "watchify": "^3.4.0"
   }
 }
