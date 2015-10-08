@@ -1,10 +1,8 @@
 var api = require('../api');
 
 module.exports = {
-  route: 'departures[{keys:ids}][{ranges:range}]["name","to"]',
+  route: 'departures[{keys:ids}][{ranges:range}]["name","to","category"]',
   get: function(pathSets) {
-    console.log(pathSets);
-
     var id = pathSets.ids.shift(),
       range = pathSets.range.shift();
 

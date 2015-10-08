@@ -1,6 +1,6 @@
 var model = require('../models');
 
-model.get(['locations', 'foo', {from: 2, to: 5}, ['id', 'name']])
+model.get('locations["Bern"][0..5].departures[0..5]["name","to"]')
   .then((res) => {
     console.log(res.json);
   })

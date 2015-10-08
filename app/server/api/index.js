@@ -23,3 +23,10 @@ exports.getStationBoards = function (id) {
       return res.stationboard;
     });
 };
+
+exports.getConnections = function (from, to) {
+  return get('/connections', { from: from, to: to, limit: 6 })
+    .then(function (res) {
+      return res.connections;
+    });
+};
