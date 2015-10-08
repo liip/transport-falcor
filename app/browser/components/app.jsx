@@ -1,7 +1,8 @@
 var React = require('react')
   , Search = require('./search.jsx')
   , Departures = require('./departures.jsx')
-  , model = require('../model');
+  , model = require('../model')
+  , _ = require('lodash');
 
 module.exports = React.createClass({
   getInitialState: function() {
@@ -22,9 +23,11 @@ module.exports = React.createClass({
   handleSubmitSearch: function(value) {
     this.setState({ locations: [] });
 
-    model.get('locations["' + value + '"][0..5].departures[0..5].to')
+    model.get('locations["' + value + '"][0..1].departures[0..5]["to","name"]')
       .then((res) => {
-        this.setState({ locations: res.json.locations });
+        console.log(res);
+
+        this.setState({ locations: _.values(res.json.locations[value]) });
       })
       .catch(function(err) {
         console.error(err);

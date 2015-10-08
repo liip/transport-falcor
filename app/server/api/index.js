@@ -2,6 +2,7 @@ var rp = require('request-promise')
   , config = require('../../config');
 
 function get(path, qs) {
+  console.log('Request to ', path, qs);
   return rp({
     url: config.API_HOST + path,
     qs: qs,

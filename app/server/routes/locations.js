@@ -22,7 +22,9 @@ module.exports = {
             // Location ref
             acc.push({
               path: ['locations', query, i, 'departures'],
-              value: { $type: 'ref', $expires: -30 * 1000, value: ['departures', '"' + location.id + '"'] }
+              value: { $type: 'ref', 
+              // $expires: -30 * 1000,
+              value: ['departures',  ':' + location.id] }
             });
 
             return acc;
