@@ -3,19 +3,12 @@ var falcorExpress = require('falcor-express')
   , Router = require('falcor-router')
   , express = require('express');
 
-
 var app = express();
+var routes = require('./routes');
 
 app.use(bodyParser.text({ type: 'text/*' }));
 app.use('/model.json', falcorExpress.dataSourceRoute(function(req, res) {
-    return new Router([
-      {
-        route: 'hello',
-        get: function() {
-          return { path: ['hello'], value: 'hello world' }
-        }
-      }
-    ]);
+    return new Router(routes);
 }));
 
 app.use(express.static('./public'));
