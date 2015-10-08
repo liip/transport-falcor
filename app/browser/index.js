@@ -1,10 +1,5 @@
-var model = require('../models');
+var React = require('react')
+  , ReactDOM = require('react-dom')
+  , App = require('./components/app.jsx');
 
-model.get('locations["Bern"][0..5].departures[0..5]["name","to"]')
-  .then((res) => {
-    console.log(res.json);
-  })
-  .catch((err) => {
-    console.error(err);
-  })
-;
+ReactDOM.render(<App />, document.getElementById('app'));

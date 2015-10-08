@@ -12,6 +12,7 @@ module.exports = {
           locations = locations.slice(range.from, range.to + 1);
 
           return locations.reduce(function(acc, location, i) {
+
             pathSets[3].forEach(function(key) {
               if (location[key]) {
                 acc.push({ path: ['locations', query, range.from + i, key], value: location[key] });

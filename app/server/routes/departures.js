@@ -3,8 +3,8 @@ var api = require('../api');
 module.exports = {
   route: 'departures[{keys:ids}][{ranges:range}]["name","to","category"]',
   get: function(pathSets) {
-    var id = pathSets.ids.shift(),
-      range = pathSets.range.shift();
+    var id = pathSets.ids[0],
+      range = pathSets.range[0];
 
     return api
       .getStationBoards(id)

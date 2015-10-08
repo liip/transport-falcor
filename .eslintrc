@@ -1,0 +1,3 @@
+ecmaFeatures:
+  jsx: true
+  arrowFunctions: true
