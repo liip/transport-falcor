@@ -5,8 +5,10 @@ var model = require('../models');
 
 console.log('momma');
 
-model.get('locations["foo"]["id", "name"]').then(function (res) {
+model.get('locations["foo"][0..]["id", "name"]').then(function (res) {
   console.log(res.json);
+})['catch'](function (err) {
+  console.error(err);
 });
 
 },{"../models":2}],2:[function(require,module,exports){
