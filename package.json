@@ -1,0 +1,29 @@
+{
+  "name": "transport-falcor",
+  "version": "0.1.0",
+  "description": "Open Data Transport with Falcor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liip/transport-falcor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liip/transport-falcor/issues"
+  },
+  "homepage": "https://github.com/liip/transport-falcor#readme",
+  "dependencies": {
+    "falcor": "^0.1.13",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0"
+  },
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^11.2.0",
+    "eslint": "^1.6.0"
+  }
+}
