@@ -15,14 +15,20 @@ module.exports = {
 
             pathSets[3].forEach(function(key) {
               if (location[key]) {
-                acc.push({ path: ['locations', query, range.from + i, key], value: location[key] });
+                var falcorValue = { path: ['locations', query, range.from + i, key], value: location[key] };
+
+                if (key === 'coordinate') {
+                  falcorValue.value = { $type: 'atom', value: falcorValue.value };
+                }
+
+                acc.push(falcorValue);
               }
             });
 
             // Location ref
             acc.push({
               path: ['locations', query, i, 'departures'],
-              value: { $type: 'ref', 
+              value: { $type: 'ref',
               // $expires: -30 * 1000,
               value: ['departures',  ':' + location.id] }
             });
