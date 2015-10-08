@@ -23,11 +23,11 @@ module.exports = {
           , error = departureResult.error
           , id = departureResult.id;
 
-        departures = departures.slice(range.from, range.to + 1);
-
         if (error) {
           return { $type: 'error', value: error };
         } else {
+          departures = departures.slice(range.from, range.to + 1);
+
           return departures.reduce(function(acc, departure, i) {
 
             pathSets[3].forEach(function(key) {

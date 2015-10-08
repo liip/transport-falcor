@@ -23,7 +23,8 @@ module.exports = React.createClass({
   handleSubmitSearch: function(value) {
     this.setState({ locations: [] });
 
-    model.get('locations["' + value + '"][0..1].departures[0..5]["to","name"]')
+    model.get('locations["' + value + '"][0..1].departures[0..5]["to","name"]',
+              'locations["' + value + '"][0..1].name')
       .then((res) => {
         console.log(res);
 
