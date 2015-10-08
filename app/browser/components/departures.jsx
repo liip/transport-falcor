@@ -1,11 +1,11 @@
 var React = require('react')
-  , _ = require('lodash');
+  , utils = require('../utils');
 
 module.exports = React.createClass({
-  
+
   render: function() {
-    var locations = this.props.locations.map(function(location) {
-      var departures = _.values(location.departures).map(function (departure) {
+    var locations = utils.getValues(this.props.locations).map(function(location) {
+      var departures = utils.getValues(location.departures).map(function (departure) {
         return (
           <li>
             {departure.to}

@@ -3,8 +3,9 @@ var api = require('../api');
 module.exports = {
   route: 'locations[{keys:query}][{ranges:range}]["id","name","score","coordinate","departures"]',
   get: function(pathSets) {
-      var query = pathSets.query[0],
-        range = pathSets.range[0];
+      var query = pathSets.query[0]
+        , range = pathSets.range[0]
+        , fields = pathSets[3]
 
       return api
         .getLocations(query)
@@ -13,7 +14,7 @@ module.exports = {
 
           return locations.reduce(function(acc, location, i) {
 
-            pathSets[3].forEach(function(key) {
+            fields.forEach(function(key) {
               if (location[key]) {
                 var falcorValue = { path: ['locations', query, range.from + i, key], value: location[key] };
 
@@ -28,9 +29,11 @@ module.exports = {
             // Location ref
             acc.push({
               path: ['locations', query, i, 'departures'],
-              value: { $type: 'ref',
-              // $expires: -30 * 1000,
-              value: ['departures',  ':' + location.id] }
+              value: {
+                $type: 'ref',
+                // $expires: -30 * 1000,
+                value: ['departures',  ':' + location.id]
+              }
             });
 
             return acc;
