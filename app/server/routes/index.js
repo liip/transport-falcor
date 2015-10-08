@@ -1,4 +1,5 @@
 module.exports = [
   require('./hello'),
-  require('./locations')
+  require('./locations'),
+  require('./departures')
 ];

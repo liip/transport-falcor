@@ -1,11 +1,10 @@
 var model = require('../models');
 
-console.log('momma');
-
-model.get('locations["foo"][0..]["id", "name"]')
+model.get('locations["Bern"][0..5].departures[0..5]["to"]')
   .then((res) => {
     console.log(res.json);
   })
   .catch((err) => {
     console.error(err);
   })
+;

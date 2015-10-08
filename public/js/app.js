@@ -3,9 +3,7 @@
 
 var model = require('../models');
 
-console.log('momma');
-
-model.get('locations["foo"][0..]["id", "name"]').then(function (res) {
+model.get('locations["Bern"][0..5].departures[0..5]["to"]').then(function (res) {
   console.log(res.json);
 })['catch'](function (err) {
   console.error(err);

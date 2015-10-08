@@ -10,10 +10,16 @@ function get(path, qs) {
   });
 }
 
-
 exports.getLocations = function(query) {
   return get('/locations', { query: query })
     .then(function(res) {
       return res.stations;
+    });
+};
+
+exports.getStationBoards = function (id) {
+  return get('/stationboard', { id: id })
+    .then(function (res) {
+      return res.stationboard;
     });
 };
